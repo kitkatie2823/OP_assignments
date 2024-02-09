@@ -55,6 +55,9 @@ ReadyQueue::ReadyQueue(const ReadyQueue& rq)
 	}
 }
 
+/**
+ *@brief operator= checks if PCB objects are the same
+*/
 ReadyQueue& ReadyQueue::operator=(const ReadyQueue& rq)
 {
 	if(this == &object)
@@ -92,11 +95,11 @@ bool ReadyQueue::isEmpty()
 	}
 }
 
-   /**
-     * @brief Checks if the PCB is full to return true, otherwise false
-     *
-     *
-     */
+/**
+* @brief Checks if the PCB is full to return true, otherwise false
+*
+*
+*/
 bool ReadyQueue::isFull()
 {
 	if (size_ == capacity-1)
@@ -109,6 +112,11 @@ bool ReadyQueue::isFull()
 	}
 }
 
+/**
+ *@brief Swapping current pointer and recursively call trickleUp() in order to find the farIndex
+ *
+ * @param the current i to find the farIndex
+*/
 void ReadyQueue::trickleUp(int i)
 	{
 		int farIndex = (i - 1) / 2;
@@ -123,6 +131,11 @@ void ReadyQueue::trickleUp(int i)
 		}
 	}
 
+/**
+ *@brief Swapping current pointer and recursively call trickleDown() in order to find biggest
+ *
+ * @param the current i to find the bigi or the biggest index
+*/
 void ReadyQueue::trickleDown(int i)
 {
 	int leftChild = 2 * i+1;
@@ -209,7 +222,6 @@ PCB* ReadyQueue::removePCB()
  */
 int ReadyQueue::size() 
 {
-    //TODO: add your code here
 	return size_;
 }
 
