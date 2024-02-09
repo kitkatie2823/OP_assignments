@@ -1,7 +1,7 @@
 /**
  * Assignment 1: priority queue of processes
  * @file readyqueue.h
- * @author Katie Trinh
+ * @author Cherishma Jalaparti and Katie Trinh
  * @brief ReadyQueue is a queue of PCB's that are in the READY state to be scheduled to run.
  * It should be a priority queue such that the process with the highest priority can be selected next.
  * @version 0.1
@@ -38,6 +38,9 @@ public:
 
 	ReadyQueue(const ReadyQueue& rq);
 	
+    /**
+    *@brief operator= checks if PCB objects are the same
+    */
 	ReadyQueue& operator=(const ReadyQueue& rq);   
 
    /**
@@ -54,10 +57,25 @@ public:
      */
 	bool isFull();
 
+    /**
+    *@brief Swapping current pointer and recursively call trickleDown() in order to find biggest
+    *
+    * @param the current i to find the bigi or the biggest index
+    */
 	void trickleDown(int i);
 
+    /**
+    *@brief Swapping current pointer and recursively call trickleUp() in order to find the farIndex
+    *
+    * @param the current i to find the farIndex
+    */
 	void trickleUp(int i);
 
+    /**
+    * @brief Swap two different heap objects
+    *
+    * @param heap1 and heap2 are two PCB objects to swap with each other
+    */
 	void swap(PCB* &heap1, PCB* &heap2);
 
     /**
